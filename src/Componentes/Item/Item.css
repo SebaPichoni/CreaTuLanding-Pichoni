@@ -1,0 +1,26 @@
+.itemCard img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.itemCard button {
+    background-color: rgb(1, 117, 1);
+    color: whitesmoke;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px;
+}
+
+.itemCard {
+    background-color: rgb(156, 156, 156);
+    border-radius: 10px;
+    width: 20rem;
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

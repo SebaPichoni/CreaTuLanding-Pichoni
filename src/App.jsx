@@ -1,10 +1,11 @@
-import Boton from "./componentes/Boton/Boton";
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TituloPrincipal from "./componentes/TituloPrincipal/TituloPrincipal";
-import ItemCount from "./componentes/ItemCount/ItemCount";
+
 import NavBar from "./componentes/NavBar/NavBar";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./Componentes/ItemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
 
@@ -13,9 +14,23 @@ const mensaje = "Aprovecha nuestras ofertas exclusivas!";
   return (
 
     <>
-      <NavBar/>
-      <ItemListContainer ofertas={mensaje}/>
 
+    <BrowserRouter>
+    <NavBar/>
+    <Routes>
+    <Route path='/' element={<ItemListContainer/>}/>
+    <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
+    <Route path='item/:idItem' element={<ItemDetailContainer/>}/>
+    <Route/>
+
+
+
+    </Routes>
+    </BrowserRouter>
+    
+      
+      {/*<ItemListContainer ofertas={mensaje}/>
+      <ItemDetailContainer/>*/}
 
     </>
   )
