@@ -1,29 +1,40 @@
-import React, { useState } from 'react'
-import './ItemDetail.css'
-import ItemCount from '../ItemCount/ItemCount'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
+import { useCartContext } from '../../context/carritoContext';
+import './ItemDetail.css';
+import { toast } from 'react-toastify';
 
-const ItemDetail = ({id,nombre,precio,img, stock}) => {
+const ItemDetail = ({ id, nombre, precio, img, stock }) => {
+    const [agregarCantidad, setAgregarCantidad] = useState(0);
+    const { agregarAlCarrito } = useCartContext();
 
-  const [agregarCantidad, setAgregarCantidad] =useState(0)
+    const manejoCantidad = (cantidad) => {
+        setAgregarCantidad(cantidad);
+        agregarAlCarrito({ id, nombre, precio, img, stock }, cantidad);
+        toast.success("Producto agregado al carrito",{autoClose: 1000, theme:"dark", position:"top-right"})
+    };
 
-  const manejoCantidad = (cantidad) => {
-    setAgregarCantidad(cantidad);
-    console.log("productos agregados: " + cantidad)
-  }
-  
-  return (
+    return (
+        <div className="contenedorItem">
+            <h2>{nombre}</h2>
+            <h3>Precio: ${precio}</h3>
+            <p>ID: {id}</p>
+            <p>Stock disponible: {stock}</p>
+            <img src={img} alt={nombre} />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto aperiam aspernatur nam quaerat ullam quasi odio suscipit itaque iste incidunt.</p>
 
-    <div className= 'contenedorItem'>
-        <h2>Nombre: {nombre} </h2>
-        <h3>Precio: {precio} </h3>
-        <h3>ID: {id} </h3>
-        <img src={img} alt={nombre} />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto aperiam aspernatur nam placeat ullam quasi odio suscipit itaque iste incidunt eum hic sint dicta, ut repellat officia iusto! Perspiciatis, dignissimos?</p>
-        {
-          agregarCantidad > 0 ? (<Link to="/cart"> Finalizar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejoCantidad} />)
-        }
-    </div>
-  )
-}
+            {
+                agregarCantidad > 0 ? (
+                    <Link to='/cart' className="finalizarCompra">
+                        Finalizar Compra
+                    </Link>
+                ) : (
+                    <ItemCount inicial={1} stock={stock} funcionAgregar={manejoCantidad} />
+                )
+            }
+        </div>
+    );
+};
 
-export default ItemDetail
+export default ItemDetail;
