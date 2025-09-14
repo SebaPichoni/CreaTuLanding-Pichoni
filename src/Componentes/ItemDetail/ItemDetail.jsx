@@ -5,7 +5,7 @@ import { useCartContext } from '../../context/carritoContext';
 import './ItemDetail.css';
 import { toast } from 'react-toastify';
 
-const ItemDetail = ({ id, nombre, precio, img, stock }) => {
+const ItemDetail = ({ id, nombre, precio, img, stock, descripcion }) => {
     const [agregarCantidad, setAgregarCantidad] = useState(0);
     const { agregarAlCarrito } = useCartContext();
 
@@ -22,7 +22,7 @@ const ItemDetail = ({ id, nombre, precio, img, stock }) => {
             <p>ID: {id}</p>
             <p>Stock disponible: {stock}</p>
             <img src={img} alt={nombre} />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto aperiam aspernatur nam quaerat ullam quasi odio suscipit itaque iste incidunt.</p>
+            <p> {descripcion} </p>
 
             {
                 agregarCantidad > 0 ? (

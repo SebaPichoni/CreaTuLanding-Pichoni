@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA1C4YQdJLlv6iPNsiCelbuB6DF7bNSx24",
+  apiKey: import.meta.env. VITE_FIREBASE_API_KEY_PICHONI,
   authDomain: "final88010-pichoni.firebaseapp.com",
   projectId: "final88010-pichoni",
   storageBucket: "final88010-pichoni.firebasestorage.app",

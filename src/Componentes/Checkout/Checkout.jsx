@@ -19,7 +19,33 @@ export const checkout = () => {
         <h2>CheckOut</h2>
 
         <form>
-            {}
+            {
+                carrito.map(producto=>(
+                    <div key={producto.item.id}>
+                        <p>{producto.item.nombre} x {producto.cantidad} </p>
+                        <p>{producto.item.precio}</p>
+                        <hr/>
+                    </div>
+                ))
+            }
+            <div>
+                <label htmlFor="">Nombre</label>
+                <input type="text" />
+            </div>
+             <div>
+                <label htmlFor="">Apellido</label>
+                <input type="text" />
+            </div>
+            <div>
+                <label htmlFor="">Telefono</label>
+                <input type="number" />
+            </div>
+             <div>
+                <label htmlFor="">Mail</label>
+                <input type="email" />
+            </div>
+
+
 
         </form>
     </div>
