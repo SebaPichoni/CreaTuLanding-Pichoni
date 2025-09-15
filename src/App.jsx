@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import NavBar from "./Componentes/NavBar/NavBar";
-import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
+import ItemListContainer from "./Componentes/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./Componentes/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./Componentes/Cart/Cart";
