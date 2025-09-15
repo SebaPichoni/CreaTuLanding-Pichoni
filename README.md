@@ -14,7 +14,7 @@
 
 ###
 
-<h2 align="left">Herramientas utilizadas:</h2>
+<h2 align="left">Herramientas utilizadas</h2>
 
 ###
 
